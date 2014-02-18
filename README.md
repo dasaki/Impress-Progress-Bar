@@ -5,7 +5,7 @@ Macro to add automatically a progress bar to your Impress presentation.
 
 How to use: 
 
-1st make a backup of your FINIHSED presentation.
+1st make a backup of your FINISHED presentation.
 
 2nd execute the macro and a progress bar will be added to each slide, on top of whatever there is in it.
 
