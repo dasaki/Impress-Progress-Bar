@@ -6,7 +6,9 @@ Macro to add automatically a progress bar to your Impress presentation. Tanks to
 How to install:
 
 1.- Download the zip form github and extract its contents (there is a folder named ProgressBar that contains a BAS library files)
+
 2.- Inside Impress go to the menu "Tools -> Macros -> Organize Macros -> Libreoffice Basic"
+
 3.- Click in the "Organizer" button, and in the next dialog choose the "Libraries" tab. Look for the folder ProgressBar downloaded and click it so you see its contents. Accept and the library should be installed.
 
 How to use: 
