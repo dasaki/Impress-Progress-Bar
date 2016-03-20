@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="ProgressBar" script:language="StarBasic">Sub InsertProgressBar  
+
+BasicLibraries.LoadLibrary(&quot;Tools&quot;)
+oDialog1 = LoadDialog(&quot;ProgressBar&quot;, &quot;ProgressBarDetails&quot;)
+oDialog1.Execute()
+ 
+&apos;Reading the controls
+olabel = oDialog1.GetControl(&quot;checkbox_label&quot;)
+oposition = oDialog1.GetControl(&quot;option_position&quot;)
+oheight = oDialog1.GetControl(&quot;text_height&quot;)
+oredfill = oDialog1.GetControl(&quot;red_fill&quot;)
+ogreenfill = oDialog1.GetControl(&quot;green_fill&quot;)
+obluefill = oDialog1.GetControl(&quot;blue_fill&quot;)
+oline = oDialog1.GetControl(&quot;option_line&quot;)
+oredline = oDialog1.GetControl(&quot;red_line&quot;)
+ogreenline = oDialog1.GetControl(&quot;green_line&quot;)
+oblueline = oDialog1.GetControl(&quot;blue_line&quot;)
+
+
+Dim oDoc As Object  
+oDoc = ThisComponent 
+
+&apos; Check if this is an Impress document  
+If thisComponent.supportsService(&quot;com.sun.star.drawing.GenericDrawingDocument&quot;) Then  
+      Dim oDrawPage As Object  
+      Dim Point As New com.sun.star.awt.Point  
+      Dim Size As New com.sun.star.awt.Size  
+      Dim Factor As Double  
+      Dim Percent As Integer
+      
+      &apos;Loop to create the rectangles  
+      For n = 0 To oDoc.DrawPages.Count-1  
+           oDrawPage = oDoc.DrawPages(n)  
+           Factor = oDrawPage.Width / oDoc.DrawPages.Count
+           &apos;Size and position
+           Size.Width = (n + 1) * Factor  
+           Size.Height = oDrawPage.Height * (oheight.Value/100)
+           Point.x = 0  
+           Point.y = 0  
+           if (oposition.State = 0) then
+	           Point.y = oDrawPage.Height - Size.Height  
+	       end if
+           m = oDrawPage.getCount-1
+           &apos;removing any previous progress bar, if exists  
+           Do While (m &gt;= 0)  
+                mShape = oDrawPage.getByIndex(m)  
+                If (InStr(mShape.Name, &quot;Progress Bar Macro&quot;) &lt;&gt; 0) Then  
+                     oDrawPage.remove(mShape)  
+                End If  
+                m = m-1  
+           Loop
+           &apos;creating the rectangle
+           RectangleShape = oDoc.createInstance(&quot;com.sun.star.drawing.RectangleShape&quot;)  
+           RectangleShape.CharWeight = com.sun.star.awt.FontWeight.BOLD  
+           RectangleShape.CharFontName = &quot;Arial&quot;  
+           RectangleShape.Size = Size  
+           RectangleShape.Position = Point  
+           RectangleShape.LineStyle = none        
+           RectangleShape.FillColor = RGB(oredfill.Value, ogreenfill.Value, obluefill.Value)
+           RectangleShape.Name = &quot;Progress Bar Macro &quot; + (n+1)  
+           Percent = 100 * (n + 1) / oDoc.DrawPages.Count  
+           oDrawPage.add(RectangleShape) 
+           if (olabel.State=1) Then
+	           RectangleShape.String = &quot;&quot; + Percent + &quot;%&quot;
+	       end if
+	       
+      Next n  
+ End If  
+ End Sub  
+</script:module>

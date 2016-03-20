@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dlg:window PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "dialog.dtd">
+<dlg:window xmlns:dlg="http://openoffice.org/2000/dialog" xmlns:script="http://openoffice.org/2000/script" dlg:id="ProgressBarDetails" dlg:left="133" dlg:top="64" dlg:width="83" dlg:height="120" dlg:closeable="true" dlg:moveable="true">
+ <dlg:styles>
+  <dlg:style dlg:style-id="0" dlg:font-slant="italic"/>
+ </dlg:styles>
+ <dlg:bulletinboard>
+  <dlg:checkbox dlg:id="checkbox_label" dlg:tab-index="0" dlg:left="5" dlg:top="8" dlg:width="63" dlg:height="8" dlg:value="Show percentage label" dlg:checked="true"/>
+  <dlg:text dlg:id="Label1" dlg:tab-index="1" dlg:left="5" dlg:top="22" dlg:width="69" dlg:height="9" dlg:value="Position (default is bottom):"/>
+  <dlg:text dlg:id="Label2" dlg:tab-index="2" dlg:left="5" dlg:top="72" dlg:width="71" dlg:height="7" dlg:value="Fill colour (red, green, blue):"/>
+  <dlg:text dlg:style-id="0" dlg:id="Label5" dlg:tab-index="3" dlg:left="2" dlg:top="109" dlg:width="79" dlg:height="8" dlg:value="Close this dialog when you finish."/>
+  <dlg:text dlg:id="Label6" dlg:tab-index="4" dlg:left="5" dlg:top="53" dlg:width="29" dlg:height="7" dlg:value="Height (%):"/>
+  <dlg:numericfield dlg:id="text_height" dlg:tab-index="5" dlg:left="37" dlg:top="53" dlg:width="22" dlg:height="8" dlg:decimal-accuracy="0" dlg:value="5" dlg:value-min="1" dlg:value-max="1000" dlg:value-step="10"/>
+  <dlg:numericfield dlg:id="red_fill" dlg:tab-index="6" dlg:left="5" dlg:top="83" dlg:width="12" dlg:height="8" dlg:decimal-accuracy="0" dlg:value="50" dlg:value-min="0" dlg:value-max="255" dlg:value-step="16"/>
+  <dlg:numericfield dlg:id="green_fill" dlg:tab-index="7" dlg:left="20" dlg:top="83" dlg:width="12" dlg:height="8" dlg:decimal-accuracy="0" dlg:value="50" dlg:value-min="0" dlg:value-max="255" dlg:value-step="16"/>
+  <dlg:numericfield dlg:id="blue_fill" dlg:tab-index="8" dlg:left="36" dlg:top="83" dlg:width="12" dlg:height="8" dlg:decimal-accuracy="0" dlg:value="250" dlg:value-min="0" dlg:value-max="255" dlg:value-step="16"/>
+  <dlg:checkbox dlg:id="option_position" dlg:tab-index="9" dlg:left="5" dlg:top="32" dlg:width="71" dlg:height="6" dlg:value="Top" dlg:checked="false"/>
+ </dlg:bulletinboard>
+</dlg:window>
